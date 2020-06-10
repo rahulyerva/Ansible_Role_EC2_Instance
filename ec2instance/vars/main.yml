@@ -1,0 +1,19 @@
+---
+# vars file for ec2instance
+
+region: us-east-2
+zone: us-east-2a
+
+key_name: ansible_key
+vpc_name: ansible
+subnet_name: ans-subnet
+ami: ami-01e36b7901e884a10
+instance_type: t2.micro
+
+state: present
+
+vpcCidrBlock: '10.0.0.0/16'
+subNetCidrBlock: '10.0.0.0/24'
+destinationCidrBlock: '0.0.0.0/0'
+port22cidrblock: '0.0.0.0/0'
+security_group: CentOS 7 -x86_64- - with Updates HVM-2002_01-AutogenByAWSMP-

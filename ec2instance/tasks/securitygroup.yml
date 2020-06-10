@@ -1,0 +1,22 @@
+---
+- name: creating security group
+  ec2_group:
+    vpc_id: "{{ ec2_vpc_net_result.vpc.id }}"
+    region: "{{ region }}"
+    state: "{{ state }}"
+    name: aws-security-group
+    description: aws-security-group
+    tags: 
+      Name: aws-security-group
+    rules:
+    - proto: tcp
+      ports:
+      - 22
+      - 80
+      - 8080
+      cidr_ip: "{{ port22cidrblock }}"
+  register: security_group_result
+
+- name:
+  debug:
+    msg: security {{ security_group_result.group_id }}

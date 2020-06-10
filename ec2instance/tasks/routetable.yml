@@ -1,0 +1,13 @@
+---
+- name: create routing table
+  ec2_vpc_route_table:
+    region: "{{ region }}"
+    state: "{{ state }}"
+    vpc_id: "{{ ec2_vpc_net_result.vpc.id }}"
+    tags:
+      Name: "{{ vpc_name }}"
+    subnets: ["{{ subnet_result.subnet.id }}"]
+    routes:
+      - dest: "{{ destinationCidrBlock }}"
+        gateway_id: "{{ igw_result.gateway_id }}"
+  register: public_route_table

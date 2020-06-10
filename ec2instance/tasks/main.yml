@@ -1,0 +1,10 @@
+---
+# tasks file for ec2instance
+
+- import_tasks: keypair.yml
+- import_tasks: vpc.yml
+- import_tasks: subnet.yml
+- import_tasks: ig.yml
+- import_tasks: routetable.yml
+- import_tasks: securitygroup.yml
+- import_tasks: ec2.yml

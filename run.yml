@@ -1,0 +1,5 @@
+- name: this playbook is for running EC2 role
+  hosts: localhost
+  connection: local
+  roles:
+  - ec2instance

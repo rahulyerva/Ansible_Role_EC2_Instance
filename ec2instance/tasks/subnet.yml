@@ -1,0 +1,11 @@
+---
+- name: create subnet
+  ec2_vpc_subnet:
+    vpc_id: "{{ ec2_vpc_net_result.vpc.id }}"
+    region: "{{ region }}"
+    az: "{{ zone }}"
+    state: "{{ state }}"
+    cidr: "{{ subNetCidrBlock }}"
+    resource_tags:
+      Name: "{{ subnet_name }}"
+  register: subnet_result

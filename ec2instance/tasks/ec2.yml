@@ -1,0 +1,15 @@
+---
+- name: create EC2 instance
+  ec2:
+    zone: "{{ zone }}"
+    region: "{{ region }}"
+    state: "{{ state }}"
+    image: "{{ ami }}"
+    instance_type: "{{ instance_type }}"
+    vpc_subnet_id: "{{ subnet_result.subnet.id }}"
+    count: 1
+    group_id: "{{ security_group_result.group_id }}"
+    key_name: "{{ key_name }}"
+    assign_public_ip: yes
+    wait: yes
+
